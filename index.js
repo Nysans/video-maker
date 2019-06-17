@@ -4,6 +4,7 @@ const robots = {
 }
 
 async function start(){
+
 	function askAndReturnSearchTerm(){
 		return readline.question('Type a Wikipedia search term: ');
 	}
@@ -14,6 +15,7 @@ async function start(){
 		const selectedPrefixText = prefixes[selectedPrefixIndex];
 
 		return selectedPrefixText; 
+
 	}
 
 	const content = {};
@@ -22,8 +24,6 @@ async function start(){
 	content.prefix = askAndReturnPrefix();
 
 	await robots.text(content);
-
-	// console.log(content);
 }
 
 start();

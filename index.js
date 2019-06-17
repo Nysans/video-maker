@@ -1,6 +1,10 @@
 const readline = require('readline-sync');
+const robots = {
+	text: require('./robots/text'),
+}
 
-function start(){
+async function start(){
+
 	function askAndReturnSearchTerm(){
 		return readline.question('Type a Wikipedia search term: ');
 	}
@@ -10,7 +14,8 @@ function start(){
 		const selectedPrefixIndex = readline.keyInSelect(prefixes,'Choose an option');
 		const selectedPrefixText = prefixes[selectedPrefixIndex];
 
-		return selectedPrefixText;
+		return selectedPrefixText; 
+
 	}
 
 	const content = {};
@@ -18,7 +23,7 @@ function start(){
 	content.searchItem = askAndReturnSearchTerm();
 	content.prefix = askAndReturnPrefix();
 
-	console.log(content);
+	await robots.text(content);
 }
 
 start();
